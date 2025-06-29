@@ -1,10 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peter Joshua Brion | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.js">
 </head>
 <body>
-    <p>Coming Soon...</p>
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+    
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">CyberSecPro</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Peter Joshua Brion</h1>
+            <h2>Cybersecurity Professional</h2>
+            <p>Protecting digital assets and securing the future through innovative cybersecurity solutions. Specialized in threat analysis, incident response, and security architecture.</p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Core Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">🛡️</div>
+                <h3>Threat Analysis</h3>
+                <p>Advanced threat detection, malware analysis, and vulnerability assessment using cutting-edge tools and methodologies.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🔒</div>
+                <h3>Security Architecture</h3>
+                <p>Designing robust security frameworks, implementing zero-trust models, and securing cloud infrastructure.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🚨</div>
+                <h3>Incident Response</h3>
+                <p>Rapid incident containment, forensic analysis, and recovery planning to minimize business impact.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Professional Experience</h2>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <div class="experience-content">
+                    <div class="experience-date">2025 - Present</div>
+                    <h3>Cybersecurity Perimeter Attack Surface Analyst</h3>
+                    <h4>Connect OS</h4>
+                    <p>Responsible for providing recommendations, and standardisation of AWS WAF Rules in accordance to the best practices on implementing of WAF in AWS.</p>
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="experience-content">
+                    <div class="experience-date">2021 - 2025</div>
+                    <h3>Support Engineer (L2 and L3)</h3>
+                    <h4>Yondu, Inc.</h4>
+                    <p>Helped building the Security Operations Center's foundations including how cyber threats are being handled respectively. Also, providing reports to local and international clients on how well their Security Posture is.</p>
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="experience-content">
+                    <div class="experience-date">2018 - 2021</div>
+                    <h3>Junior Software Engineer</h3>
+                    <h4>Yondu, Inc.</h4>
+                    <p>Developed websites (CMS and Web Application based) to local clients and assigned to do mostly the functionalities of the systems using PHP.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Designed Flows of Alert Triage</h3>
+                <p>Designed and properly implemented appropriate flows for triaging an alert ticket using JIRA.</p>
+                <div class="project-tags">
+                    <span class="tag">Threat Detection</span>
+                    <span class="tag">JIRA</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Endpoint Security Assessment</h3>
+                <p>Conducted comprehensive security assessment of endpoint assets, identifying critical vulnerabilities and providing recommendations to clients on how these vulnerabilities can be resolved.</p>
+                <div class="project-tags">
+                    <span class="tag">Endpoint security</span>
+                    <span class="tag">Cloud Security</span>
+                    <span class="tag">Compliance</span>
+                    <span class="tag">Assessment</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Automated Log Parsing</h3>
+                <p>Developed Python-based log parsing tool specifically for AWS WAF logs.</p>
+                <div class="project-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">AWS WAF</span>
+                    <span class="tag">API Integration</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact">
+            <h2>Let's Connect</h2>
+            <p>Ready to discuss cybersecurity challenges and opportunities? Let's talk about how we can work together to build a more secure digital future.</p>
+            <div class="contact-links">
+                <a href="mailto:peterjoshua.brion@gmail.com" class="contact-link">
+                    <span>📧</span>
+                    <span>Email</span>
+                </a>
+                <a href="https://linkedin.com/in/pjpbrion" class="contact-link">
+                    <span>💼</span>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/arctracerexequias" class="contact-link">
+                    <span>💻</span>
+                    <span>GitHub</span>
+                </a>
+                <a href="tel:+63 (916) 594-0603" class="contact-link">
+                    <span>📱</span>
+                    <span>Phone</span>
+                </a>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
