@@ -166,15 +166,27 @@
         }
     };
 
-    // Form Handling
+    // Form Handling with EmailJS Integration
     const formHandler = {
+        // EmailJS Configuration - Replace with your actual IDs
+        emailjsConfig: {
+            serviceID: 'service_qxakg66',      // Replace with your EmailJS service ID
+            templateID: 'template_2p9h7el',    // Replace with your EmailJS template ID
+            publicKey: 'WL28eYqeWtZxyI3dr'       // Replace with your EmailJS public key
+        },
+
         init: () => {
             if (elements.contactForm) {
+                // Initialize EmailJS
+                if (typeof emailjs !== 'undefined') {
+                    emailjs.init(formHandler.emailjsConfig.publicKey);
+                }
+                
                 elements.contactForm.addEventListener('submit', formHandler.handleSubmit);
             }
         },
 
-        handleSubmit: (e) => {
+        handleSubmit: async (e) => {
             e.preventDefault();
             
             // Get form data
@@ -183,7 +195,7 @@
             
             // Basic validation
             if (formHandler.validateForm(data)) {
-                formHandler.submitForm(data);
+                await formHandler.submitForm(data);
             }
         },
 
@@ -200,6 +212,11 @@
                 return false;
             }
             
+            if (message.trim().length < 10) {
+                formHandler.showMessage('Please provide a more detailed message (at least 10 characters).', 'error');
+                return false;
+            }
+            
             return true;
         },
 
@@ -208,39 +225,153 @@
             return emailRegex.test(email);
         },
 
-        submitForm: (data) => {
-            // Simulate form submission (replace with actual implementation)
-            formHandler.showMessage('Thank you for your message! I\'ll get back to you soon.', 'success');
-            elements.contactForm.reset();
+        submitForm: async (data) => {
+            const submitButton = elements.contactForm.querySelector('.form-submit');
+            const originalText = submitButton.textContent;
             
-            // You can implement actual form submission here
-            // For example, using fetch() to send to a backend API
+            try {
+                // Show loading state
+                formHandler.setLoadingState(submitButton, true);
+                
+                // Check if EmailJS is configured
+                if (!formHandler.isEmailJSConfigured()) {
+                    throw new Error('Email service not configured. Please check EmailJS setup.');
+                }
+
+                // Prepare template parameters for EmailJS
+                const templateParams = {
+                    from_name: data.name,
+                    from_email: data.email,
+                    subject: data.subject,
+                    message: data.message,
+                    to_name: 'Peter Joshua Brion',  // Your name
+                    reply_to: data.email
+                };
+
+                // Send email using EmailJS
+                const response = await emailjs.send(
+                    formHandler.emailjsConfig.serviceID,
+                    formHandler.emailjsConfig.templateID,
+                    templateParams
+                );
+
+                if (response.status === 200) {
+                    formHandler.showMessage(
+                        'Thank you for your message! I\'ll get back to you within 24 hours.', 
+                        'success'
+                    );
+                    elements.contactForm.reset();
+                    
+                    // Optional: Track form submission (for analytics)
+                    formHandler.trackFormSubmission();
+                } else {
+                    throw new Error('Failed to send message');
+                }
+
+            } catch (error) {
+                console.error('Form submission error:', error);
+                
+                let errorMessage = 'Sorry, there was an error sending your message. ';
+                
+                if (error.message.includes('not configured')) {
+                    errorMessage += 'Please try contacting me directly at peterjoshua.brion@gmail.com';
+                } else if (error.message.includes('network') || error.message.includes('fetch')) {
+                    errorMessage += 'Please check your internet connection and try again.';
+                } else {
+                    errorMessage += 'Please try again later or contact me directly at peterjoshua.brion@gmail.com';
+                }
+                
+                formHandler.showMessage(errorMessage, 'error');
+            } finally {
+                // Reset loading state
+                formHandler.setLoadingState(submitButton, false, originalText);
+            }
+        },
+
+        isEmailJSConfigured: () => {
+            const { serviceID, templateID, publicKey } = formHandler.emailjsConfig;
+            return serviceID === 'service_qxakg66' && 
+                   templateID === 'template_2p9h7el' && 
+                   publicKey === 'WL28eYqeWtZxyI3dr' &&
+                   typeof emailjs !== 'undefined';
+        },
+
+        setLoadingState: (button, isLoading, originalText = 'Send Message') => {
+            if (isLoading) {
+                button.disabled = true;
+                button.innerHTML = `
+                    <span style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <span style="width: 16px; height: 16px; border: 2px solid #ffffff; border-top: 2px solid transparent; border-radius: 50%; animation: spin 1s linear infinite;"></span>
+                        Sending...
+                    </span>
+                `;
+            } else {
+                button.disabled = false;
+                button.textContent = originalText;
+            }
+        },
+
+        trackFormSubmission: () => {
+            // Optional: Add analytics tracking
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'form_submit', {
+                    event_category: 'contact',
+                    event_label: 'portfolio_contact_form'
+                });
+            }
         },
 
         showMessage: (message, type) => {
+            // Remove any existing messages
+            const existingMessages = document.querySelectorAll('.form-message');
+            existingMessages.forEach(msg => msg.remove());
+
             // Create and show message
             const messageEl = document.createElement('div');
+            messageEl.className = 'form-message';
             messageEl.textContent = message;
+            
+            const isSuccess = type === 'success';
             messageEl.style.cssText = `
                 position: fixed;
                 top: 20px;
                 right: 20px;
+                max-width: 400px;
                 padding: 1rem 1.5rem;
-                border-radius: 0.5rem;
+                border-radius: 0.75rem;
                 color: white;
                 font-weight: 500;
                 z-index: 10000;
-                animation: slideIn 0.3s ease;
-                ${type === 'success' ? 'background: #059669;' : 'background: #dc2626;'}
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+                animation: slideInMessage 0.4s ease;
+                line-height: 1.5;
+                ${isSuccess ? 
+                    'background: linear-gradient(135deg, #059669, #10b981);' : 
+                    'background: linear-gradient(135deg, #dc2626, #ef4444);'
+                }
             `;
             
             document.body.appendChild(messageEl);
             
-            // Remove message after 5 seconds
+            // Auto-remove message after 6 seconds
             setTimeout(() => {
-                messageEl.style.animation = 'slideOut 0.3s ease';
-                setTimeout(() => document.body.removeChild(messageEl), 300);
-            }, 5000);
+                messageEl.style.animation = 'slideOutMessage 0.4s ease';
+                setTimeout(() => {
+                    if (document.body.contains(messageEl)) {
+                        document.body.removeChild(messageEl);
+                    }
+                }, 400);
+            }, 6000);
+
+            // Allow manual close by clicking
+            messageEl.addEventListener('click', () => {
+                messageEl.style.animation = 'slideOutMessage 0.4s ease';
+                setTimeout(() => {
+                    if (document.body.contains(messageEl)) {
+                        document.body.removeChild(messageEl);
+                    }
+                }, 400);
+            });
         }
     };
 
@@ -438,14 +569,45 @@
     // Add CSS animations
     const style = document.createElement('style');
     style.textContent = `
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+        @keyframes slideInMessage {
+            from { 
+                transform: translateX(100%) translateY(-20px); 
+                opacity: 0; 
+                scale: 0.9;
+            }
+            to { 
+                transform: translateX(0) translateY(0); 
+                opacity: 1; 
+                scale: 1;
+            }
         }
         
-        @keyframes slideOut {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(100%); opacity: 0; }
+        @keyframes slideOutMessage {
+            from { 
+                transform: translateX(0) translateY(0); 
+                opacity: 1; 
+                scale: 1;
+            }
+            to { 
+                transform: translateX(100%) translateY(-20px); 
+                opacity: 0; 
+                scale: 0.9;
+            }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .form-message {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .form-message:hover {
+            transform: scale(1.02);
+            transition: transform 0.2s ease;
         }
     `;
     document.head.appendChild(style);
