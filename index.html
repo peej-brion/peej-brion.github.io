@@ -1,144 +1,541 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peter Joshua Brion | Portfolio</title>
+    <title>Peter Joshua Brion | Cybersecurity Professional</title>
+    <meta name="description" content="Professional cybersecurity specialist with expertise in AWS WAF, perimeter security, and SOC development">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="index.js">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="scroll-indicator" id="scrollIndicator"></div>
+    <!-- Progress Bar -->
+    <div id="progress-bar" class="scroll-indicator"></div>
     
+    <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <div class="logo"></div>
+            <!-- Logo -->
+            <a href="#home" class="logo">
+                <div class="logo-icon">🛡️</div>
+                Peter Brion
+            </a>
+            
+            <!-- Desktop Navigation -->
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Expertise</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu">
+                <span>☰</span>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu">
+            <div class="mobile-menu-content">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Expertise</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section id="home" class="hero">
+        <!-- Floating Elements -->
+        <div class="floating-elements">
+            <div class="floating-dot"></div>
+            <div class="floating-dot"></div>
+            <div class="floating-dot"></div>
+            <div class="floating-dot"></div>
+        </div>
+        
         <div class="hero-content">
+            <!-- Main Content -->
             <h1>Peter Joshua Brion</h1>
-            <h2>Cybersecurity Professional</h2>
-            <p>Protecting digital assets and securing the future through innovative cybersecurity solutions. Specialized in threat analysis, incident response, and security architecture.</p>
-            <a href="#contact" class="cta-button">Get In Touch</a>
+            <h2>Cybersecurity Perimeter Attack Surface Analyst</h2>
+            <p>
+                Dedicated cybersecurity professional with <span class="highlight">5+ years of experience</span> spanning software development and security operations. 
+                Specialized in AWS WAF implementation, perimeter security analysis, and building robust Security Operations Centers.
+            </p>
+            
+            <!-- CTA Buttons -->
+            <div class="cta-container">
+                <a href="#contact" class="cta-button">Get In Touch</a>
+                <a href="#projects" class="cta-secondary">View My Work</a>
+            </div>
+            
+            <!-- Stats -->
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">7+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Major Projects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">SOC</div>
+                    <div class="stat-label">Builder</div>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p class="section-subtitle">
+            A cybersecurity professional with a unique background in software development, 
+            bringing comprehensive technical knowledge to security challenges.
+        </p>
+        
+        <div class="about-grid">
+            <!-- Content -->
+            <div class="about-content">
+                <p class="about-text">
+                    With over 7 years of experience spanning software engineering and cybersecurity, I specialize in building robust 
+                    security frameworks, conducting comprehensive threat assessments, and implementing AWS WAF solutions that protect 
+                    organizations from sophisticated cyber attacks.
+                </p>
+                <p class="about-text">
+                    My journey from software development to cybersecurity has given me a unique perspective on secure coding practices 
+                    and the importance of building security into systems from the ground up. I've helped establish Security Operations 
+                    Centers and provided security assessments to both local and international clients.
+                </p>
+                
+                <!-- Certifications -->
+                <div class="certifications">
+                    <h3>Professional Development</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">AWS Security</span>
+                        <span class="cert-tag">WAF Implementation</span>
+                        <span class="cert-tag">SOC Operations</span>
+                        <span class="cert-tag">Threat Analysis</span>
+                        <span class="cert-tag">PHP Development</span>
+                        <span class="cert-tag">Security Assessment</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skills Progress -->
+            <div class="about-visual">
+                <div class="skills-progress">
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">AWS Security & WAF</span>
+                            <span class="progress-value">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">SOC Development</span>
+                            <span class="progress-value">70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">Threat Assessment</span>
+                            <span class="progress-value">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">Software Development</span>
+                            <span class="progress-value">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
     <section id="skills">
         <h2>Core Expertise</h2>
+        <p class="section-subtitle">
+            Comprehensive cybersecurity and technical skills developed through hands-on experience 
+            in enterprise environments and continuous professional development.
+        </p>
+        
         <div class="skills-grid">
+            <!-- Skill Card 1 -->
             <div class="skill-card">
-                <div class="skill-icon">🛡️</div>
-                <h3>Threat Analysis</h3>
-                <p>Advanced threat detection, malware analysis, and vulnerability assessment using cutting-edge tools and methodologies.</p>
+                <h3>Perimeter Security</h3>
+                <p>
+                    Specialized in attack surface analysis, AWS WAF implementation, and perimeter defense strategies 
+                    to protect organizational assets from external threats.
+                </p>
+                <div class="skill-tags">
+                    <span class="skill-tag">AWS WAF</span>
+                    <span class="skill-tag">Perimeter Defense</span>
+                    <span class="skill-tag">Attack Surface</span>
+                </div>
             </div>
+            
+            <!-- Skill Card 2 -->
             <div class="skill-card">
-                <div class="skill-icon">🔒</div>
-                <h3>Security Architecture</h3>
-                <p>Designing robust security frameworks, implementing zero-trust models, and securing cloud infrastructure.</p>
+                <h3>SOC Operations</h3>
+                <p>
+                    Experience in building Security Operations Center foundations, threat handling procedures, 
+                    and security posture reporting for enterprise clients.
+                </p>
+                <div class="skill-tags">
+                    <span class="skill-tag">SOC Development</span>
+                    <span class="skill-tag">Threat Handling</span>
+                    <span class="skill-tag">Security Reporting</span>
+                </div>
             </div>
+            
+            <!-- Skill Card 3 -->
             <div class="skill-card">
-                <div class="skill-icon">🚨</div>
-                <h3>Incident Response</h3>
-                <p>Rapid incident containment, forensic analysis, and recovery planning to minimize business impact.</p>
+                <h3>Security Assessment</h3>
+                <p>
+                    Comprehensive endpoint security assessments, vulnerability identification, 
+                    and remediation recommendations for improved security posture.
+                </p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Vulnerability Assessment</span>
+                    <span class="skill-tag">Endpoint Security</span>
+                    <span class="skill-tag">Risk Analysis</span>
+                </div>
+            </div>
+            
+            <!-- Skill Card 4 -->
+            <div class="skill-card">
+                <h3>Automation & Scripting</h3>
+                <p>
+                    Development of Python-based security tools, log parsing automation, 
+                    and workflow optimization for enhanced operational efficiency.
+                </p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Log Analysis</span>
+                    <span class="skill-tag">Automation</span>
+                </div>
+            </div>
+            
+            <!-- Skill Card 5 -->
+            <div class="skill-card">
+                <h3>Software Development</h3>
+                <p>
+                    Strong foundation in secure software development with PHP, CMS development, 
+                    and understanding of application security principles.
+                </p>
+                <div class="skill-tags">
+                    <span class="skill-tag">PHP Development</span>
+                    <span class="skill-tag">CMS Systems</span>
+                    <span class="skill-tag">Secure Coding</span>
+                </div>
+            </div>
+            
+            <!-- Skill Card 6 -->
+            <div class="skill-card">
+                <h3>Cloud Security</h3>
+                <p>
+                    AWS security implementation, cloud infrastructure protection, 
+                    and compliance management in cloud environments.
+                </p>
+                <div class="skill-tags">
+                    <span class="skill-tag">AWS Security</span>
+                    <span class="skill-tag">Cloud Infrastructure</span>
+                    <span class="skill-tag">Compliance</span>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Experience Section -->
     <section id="experience">
         <h2>Professional Experience</h2>
+        <p class="section-subtitle">
+            A progressive career path demonstrating growth from software development 
+            to specialized cybersecurity expertise in enterprise environments.
+        </p>
+        
         <div class="experience-timeline">
+            <!-- Experience Item 1 -->
             <div class="experience-item">
                 <div class="experience-content">
-                    <div class="experience-date">2025 - Present</div>
-                    <h3>Cybersecurity Perimeter Attack Surface Analyst</h3>
-                    <h4>Connect OS</h4>
-                    <p>Responsible for providing recommendations, and standardisation of AWS WAF Rules in accordance to the best practices on implementing of WAF in AWS.</p>
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Cybersecurity Perimeter Attack Surface Analyst</h3>
+                            <h4 class="experience-company">Connect OS</h4>
+                        </div>
+                        <div class="experience-date">2025 - Present</div>
+                    </div>
+                    <p class="experience-description">
+                        Responsible for providing recommendations and standardization of AWS WAF Rules in accordance to best practices 
+                        for implementing WAF in AWS environments. Focus on perimeter security analysis and attack surface management 
+                        to protect organizational assets from external threats.
+                    </p>
+                    <div class="experience-tags">
+                        <span class="experience-tag">AWS WAF</span>
+                        <span class="experience-tag">Perimeter Security</span>
+                        <span class="experience-tag">Attack Surface Analysis</span>
+                        <span class="experience-tag">Security Standards</span>
+                    </div>
                 </div>
             </div>
+            
+            <!-- Experience Item 2 -->
             <div class="experience-item">
                 <div class="experience-content">
-                    <div class="experience-date">2021 - 2025</div>
-                    <h3>Support Engineer (L2 and L3)</h3>
-                    <h4>Yondu, Inc.</h4>
-                    <p>Helped building the Security Operations Center's foundations including how cyber threats are being handled respectively. Also, providing reports to local and international clients on how well their Security Posture is.</p>
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Support Engineer (L2 and L3)</h3>
+                            <h4 class="experience-company">Yondu, Inc.</h4>
+                        </div>
+                        <div class="experience-date">2021 - 2025</div>
+                    </div>
+                    <p class="experience-description">
+                        Instrumental in building Security Operations Center foundations, establishing cyber threat handling procedures, 
+                        and delivering comprehensive security posture reports to both local and international clients. 
+                        Developed expertise in incident response and threat analysis.
+                    </p>
+                    <div class="experience-tags">
+                        <span class="experience-tag">SOC Development</span>
+                        <span class="experience-tag">Threat Handling</span>
+                        <span class="experience-tag">Security Reporting</span>
+                        <span class="experience-tag">Incident Response</span>
+                    </div>
                 </div>
             </div>
+            
+            <!-- Experience Item 3 -->
             <div class="experience-item">
                 <div class="experience-content">
-                    <div class="experience-date">2018 - 2021</div>
-                    <h3>Junior Software Engineer</h3>
-                    <h4>Yondu, Inc.</h4>
-                    <p>Developed websites (CMS and Web Application based) to local clients and assigned to do mostly the functionalities of the systems using PHP.</p>
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Junior Software Engineer</h3>
+                            <h4 class="experience-company">Yondu, Inc.</h4>
+                        </div>
+                        <div class="experience-date">2018 - 2021</div>
+                    </div>
+                    <p class="experience-description">
+                        Developed comprehensive web solutions including CMS and web applications for local clients using PHP. 
+                        Responsible for system functionality implementation and gained foundational understanding of 
+                        secure software development practices that later informed cybersecurity expertise.
+                    </p>
+                    <div class="experience-tags">
+                        <span class="experience-tag">PHP Development</span>
+                        <span class="experience-tag">CMS Development</span>
+                        <span class="experience-tag">Web Applications</span>
+                        <span class="experience-tag">System Architecture</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Projects Section -->
     <section id="projects">
         <h2>Featured Projects</h2>
+        <p class="section-subtitle">
+            Showcase of key projects demonstrating technical expertise, problem-solving abilities, 
+            and measurable impact on organizational security and efficiency.
+        </p>
+        
         <div class="projects-grid">
+            <!-- Project 1 -->
             <div class="project-card">
-                <h3>Designed Flows of Alert Triage</h3>
-                <p>Designed and properly implemented appropriate flows for triaging an alert ticket using JIRA.</p>
+                <div class="project-header">
+                    <h3 class="project-title">Alert Triage Workflow Design</h3>
+                </div>
+                <p class="project-description">
+                    Designed and implemented comprehensive alert triage workflows using JIRA to streamline 
+                    security incident response processes. Created standardized procedures that improved 
+                    response efficiency and reduced false positive handling time.
+                </p>
+                <div class="project-metrics">
+                    <div class="metric-item">
+                        <span class="metric-label">Impact</span>
+                        <span class="metric-value">Improved Triage Efficiency</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Platform</span>
+                        <span class="metric-value">JIRA Workflow System</span>
+                    </div>
+                </div>
                 <div class="project-tags">
-                    <span class="tag">Threat Detection</span>
-                    <span class="tag">JIRA</span>
+                    <span class="project-tag">Threat Detection</span>
+                    <span class="project-tag">JIRA</span>
+                    <span class="project-tag">Workflow Design</span>
+                    <span class="project-tag">Process Optimization</span>
                 </div>
             </div>
+            
+            <!-- Project 2 -->
             <div class="project-card">
-                <h3>Endpoint Security Assessment</h3>
-                <p>Conducted comprehensive security assessment of endpoint assets, identifying critical vulnerabilities and providing recommendations to clients on how these vulnerabilities can be resolved.</p>
+                <div class="project-header">
+                    <h3 class="project-title">Endpoint Security Assessment</h3>
+                </div>
+                <p class="project-description">
+                    Conducted comprehensive security assessments of endpoint assets across enterprise environments. 
+                    Identified critical vulnerabilities and provided actionable remediation recommendations to 
+                    enhance overall security posture for client organizations.
+                </p>
+                <div class="project-metrics">
+                    <div class="metric-item">
+                        <span class="metric-label">Scope</span>
+                        <span class="metric-value">Enterprise Endpoints</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Deliverable</span>
+                        <span class="metric-value">Security Recommendations</span>
+                    </div>
+                </div>
                 <div class="project-tags">
-                    <span class="tag">Endpoint security</span>
-                    <span class="tag">Cloud Security</span>
-                    <span class="tag">Compliance</span>
-                    <span class="tag">Assessment</span>
+                    <span class="project-tag">Endpoint Security</span>
+                    <span class="project-tag">Vulnerability Assessment</span>
+                    <span class="project-tag">Risk Analysis</span>
+                    <span class="project-tag">Compliance</span>
                 </div>
             </div>
+            
+            <!-- Project 3 -->
             <div class="project-card">
-                <h3>Automated Log Parsing</h3>
-                <p>Developed Python-based log parsing tool specifically for AWS WAF logs.</p>
+                <div class="project-header">
+                    <h3 class="project-title">AWS WAF Log Parsing Automation</h3>
+                </div>
+                <p class="project-description">
+                    Developed a Python-based automated log parsing solution specifically designed for AWS WAF logs. 
+                    The tool enables efficient analysis of web application firewall data, pattern identification, 
+                    and security rule optimization through automated processing and reporting.
+                </p>
+                <div class="project-metrics">
+                    <div class="metric-item">
+                        <span class="metric-label">Technology</span>
+                        <span class="metric-value">Python Automation</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Platform</span>
+                        <span class="metric-value">AWS WAF Integration</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Benefit</span>
+                        <span class="metric-value">Automated Analysis</span>
+                    </div>
+                </div>
                 <div class="project-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">AWS WAF</span>
-                    <span class="tag">API Integration</span>
+                    <span class="project-tag">Python</span>
+                    <span class="project-tag">AWS WAF</span>
+                    <span class="project-tag">Log Analysis</span>
+                    <span class="project-tag">Automation</span>
+                    <span class="project-tag">API Integration</span>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact">
+        <h2>Let's Connect</h2>
+        <p class="section-subtitle">
+            Ready to discuss cybersecurity challenges and opportunities? I'm available for 
+            consulting, full-time positions, and collaborative projects.
+        </p>
+        
         <div class="contact">
-            <h2>Let's Connect</h2>
-            <p>Ready to discuss cybersecurity challenges and opportunities? Let's talk about how we can work together to build a more secure digital future.</p>
-            <div class="contact-links">
-                <a href="mailto:peterjoshua.brion@gmail.com" class="contact-link">
-                    <span>📧</span>
-                    <span>Email</span>
-                </a>
-                <a href="https://linkedin.com/in/pjpbrion" class="contact-link">
-                    <span>💼</span>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="https://github.com/arctracerexequias" class="contact-link">
-                    <span>💻</span>
-                    <span>GitHub</span>
-                </a>
-                <a href="tel:+63 (916) 594-0603" class="contact-link">
-                    <span>📱</span>
-                    <span>Phone</span>
-                </a>
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    
+                    <div class="contact-links">
+                        <a href="mailto:peterjoshua.brion@gmail.com" class="contact-link">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-details">
+                                <div class="contact-name">Email</div>
+                                <div class="contact-value">peterjoshua.brion@gmail.com</div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://linkedin.com/in/pjpbrion" class="contact-link" target="_blank" rel="noopener">
+                            <div class="contact-icon">💼</div>
+                            <div class="contact-details">
+                                <div class="contact-name">LinkedIn</div>
+                                <div class="contact-value">linkedin.com/in/pjpbrion</div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://github.com/arctracerexequias" class="contact-link" target="_blank" rel="noopener">
+                            <div class="contact-icon">💻</div>
+                            <div class="contact-details">
+                                <div class="contact-name">GitHub</div>
+                                <div class="contact-value">github.com/arctracerexequias</div>
+                            </div>
+                        </a>
+                        
+                        <a href="tel:+639165940603" class="contact-link">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-details">
+                                <div class="contact-name">Phone</div>
+                                <div class="contact-value">+63 (916) 594-0603</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Contact Form -->
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-input" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-input" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" class="form-input" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" class="form-input form-textarea" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">Send Message</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer style="padding: 2rem; text-align: center; border-top: 1px solid rgba(148, 163, 184, 0.1);">
+        <p style="color: var(--slate-400); font-size: 0.9rem;">
+            © 2025 Peter Joshua Brion. Professional cybersecurity portfolio.
+        </p>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="index.js"></script>
 </body>
 </html>
